@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanzeel Abbas | Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body >
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">JD</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animated-text">Hi, I'm <span>Tanzeel Abbas</span></h1>
+                <h2>About Me 💡</h2>
+        <p>🎓 I am a BSCS student at Iqra University, passionate about technology, coding, and problem-solving.</p>
+        <p>💻 I specialize in web development, with expertise in the MERN stack, UI/UX design, and responsive web applications.</p>
+                <a href="#contact"  class=" btn custom-button">Get in Touch</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/Profile.jpg" alt="Tanzeel Abbas" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <hr/>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                   
+                    <div class="experience">
+                        <h3>Experience</h3>
+                        <p>As a junior developer at didibyte</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                    <p>Advanced</p>
+                </div>
+                <!-- Add more skill cards similarly -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="images/odoo.png" alt="Erp Platform">
+                    <div class="project-info">
+                        <h3>Enterprize resourse planning</h3>
+                        <p>MERN stack application with payment integration</p>
+                        <a href="https://github.com/kanirya/kanirya/blob/main/Resume.pdf" class="custom-button">View Details</a>
+                    </div>
+                </div>
+                <!-- Add more project cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="contact-wrapper">
+                <form class="contact-form">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>tanzeelabbas72145@gmail.com</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.github.com/kanirya"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/muhammad-danish-04252b332"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/share/12FFL8VZBvt/"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuBtn.classList.toggle('close');
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.animated-text, .skill-card, .project-card').forEach(el => {
+        observer.observe(el);
+    });
+});
+</script>
